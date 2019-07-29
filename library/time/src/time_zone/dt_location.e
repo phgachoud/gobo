@@ -12,7 +12,7 @@ note
 
 class DT_LOCATION
 
-creation
+create
 	make,
 	make_from_degrees
 
@@ -47,6 +47,15 @@ feature -- Status setting
 		ensure
 			latitude = a_latitude
 		end
+
+feature -- Status report
+	
+--	offset (a_date_time: DATE_TIME): DT_LOCATION
+			-- https://timezonedb.com/api
+--		local
+--			
+--		do
+--		end
 
 feature -- Validation
 
