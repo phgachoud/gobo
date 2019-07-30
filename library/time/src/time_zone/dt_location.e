@@ -12,7 +12,7 @@ note
 
 class DT_LOCATION
 
-create
+creation
 	make,
 	make_from_degrees
 
@@ -48,15 +48,6 @@ feature -- Status setting
 			latitude = a_latitude
 		end
 
-feature -- Status report
-	
---	offset (a_date_time: DATE_TIME): DT_LOCATION
-			-- https://timezonedb.com/api
---		local
---			
---		do
---		end
-
 feature -- Validation
 
 	valid_longitude (a_longitude: like longitude): BOOLEAN
@@ -68,6 +59,16 @@ feature -- Validation
 		do
 			Result := a_latitude >= -90 and a_latitude <= 90
 		end
+
+feature -- Locations
+
+	santiago_de_chile: like Current
+		do
+			create Result.make (-70.673676, -33.447487)
+		ensure
+			instance_free: Class
+		end
+
 invariant
 	valid_longitude (longitude)
 	valid_latitude (latitude)
