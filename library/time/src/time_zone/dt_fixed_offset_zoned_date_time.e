@@ -22,6 +22,7 @@ inherit
 create
 
 	make,
+	make_from_date_time,
 	make_from_zoned_date
 
 feature {NONE} -- Initialization
@@ -36,6 +37,11 @@ feature {NONE} -- Initialization
 		ensure
 			date_set: zoned_date.is_equal (a_date)
 			time_zone_set: time_zone = a_date.time_zone
+		end
+
+	make_from_date_time (a_date_time: DATE_TIME; a_time_zone: like time_zone)
+		do
+			create date_time.make_precise (a_date_time.date.year, m, d, h, mi, s, ms: INTEGER_32)
 		end
 
 feature -- Access
