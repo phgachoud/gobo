@@ -29,7 +29,7 @@ feature {NONE} -- Initialization
 
 feature -- Access
 
-	longitude, latitude: REAL	
+	longitude, latitude: REAL
 			-- Time zone
 
 feature -- Status setting
@@ -63,7 +63,7 @@ feature -- Validation
 feature -- Locations
 
 	santiago_de_chile: like Current
-		do
+		once
 			create Result.make (-70.673676, -33.447487)
 		ensure
 			instance_free: Class
