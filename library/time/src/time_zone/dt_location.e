@@ -12,7 +12,7 @@ note
 
 class DT_LOCATION
 
-creation
+create
 	make,
 	make_from_degrees
 
@@ -50,19 +50,19 @@ feature -- Status setting
 
 feature -- Validation
 
-	valid_longitude (a_longitude: like longitude): BOOLEAN
+	valid_longitude (a_longitude: REAL): BOOLEAN
 		do
 			Result := a_longitude >= -180 and a_longitude <= 180
 		end
 
-	valid_latitude (a_latitude: like latitude): BOOLEAN
+	valid_latitude (a_latitude: REAL): BOOLEAN
 		do
 			Result := a_latitude >= -90 and a_latitude <= 90
 		end
 
 feature -- Locations
 
-	santiago_de_chile: like Current
+	santiago_de_chile: DT_LOCATION
 		once
 			create Result.make (-70.673676, -33.447487)
 		ensure
