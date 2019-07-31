@@ -337,6 +337,14 @@ feature -- Comparison
 			Result := date_storage = other.date_storage and time_storage = other.time_storage
 		end
 
+feature -- Status report
+
+	seconds_since_epoch: like second
+		do
+			Result := date.day_count * 3600 * 24
+			Result := Result + time.second_count
+		end
+
 feature {NONE} -- Implementation
 
 	set_normalized_time_storage (ts: INTEGER_64)
